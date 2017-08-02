@@ -50,5 +50,5 @@ def additive():
 		print('Invalid Choice')
 		additive()
 
-if __name__ == '__additive':
+if __name__ == '__additive__':
         additive()
