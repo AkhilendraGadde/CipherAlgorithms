@@ -11,7 +11,7 @@ def otpc():
 
 	_plainText = ''
 	_cipherText = ''
-	key = ri(1,26)
+	key = ''
 
 	print('\n\n\t\t|| OneTimePad Cipher ||\n')
 	print('''\n1. Encrypt Message\n2. Return to main\n''')
@@ -21,10 +21,13 @@ def otpc():
 		_cipherText = ''
 		_plainText = str(input('\nEnter message to encrypt : ')).upper().replace(" ","")
 
+		for char in range(len(_plainText)):
+			key += _charset[ri(0,25)]
+
 		for index,i in enumerate(_plainText):
-			char = _charset.find(i) + key
-			if char > 26:
-				char = char%26
+			char = _charset.find(i) + _charset.find(key[index])
+			if char > 25:
+				char -= 26
 			_cipherText += _charset[char]
 
 		print("\nYour message '{}' is Encrypted as '{}' using key {}\n".format(_plainText.lower(),_cipherText,key))
@@ -37,5 +40,5 @@ def otpc():
 		print('Invalid Choice')
 		otpc()
 
-if __name__ == '__otpc__' :
+if __name__ == '__main__' :
 	otpc()
