@@ -21,7 +21,7 @@ def ceaser():
 
 		for index,i in enumerate(_plainText):
 			char = _charset.find(i) + key
-			if char > 26:
+			if char > 25:
 				char = char%26
 			_cipherText += _charset[char]
 
@@ -49,5 +49,5 @@ def ceaser():
 		print('Invalid Choice')
 		ceaser()
 
-if __name__ == '__ceaser__' :
+if __name__ == '__main__' :
 	ceaser()

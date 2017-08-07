@@ -17,11 +17,14 @@ def additive():
 	if ch is 1:
 		_cipherText = ''
 		_plainText = str(input('\nEnter message to encrypt : ')).upper().replace(" ","")
-		key = int(input('Enter key in range[1-26] : '))
+		key = int(input('Enter key in range[0-25] : '))
+		if key>25 and key < 0:
+			print("Invalid key value")
+			additive()
 
 		for index,i in enumerate(_plainText):
 			char = _charset.find(i) + key
-			if char > 26:
+			if char > 25:
 				char = char%26
 			_cipherText += _charset[char]
 
@@ -32,7 +35,10 @@ def additive():
 	elif ch is 2:
 		_plainText = ''
 		_cipherText = str(input('\nEnter message to decrypt : ')).upper().replace(" ","")
-		key = int(input('Enter key in range[1-26] : '))
+		key = int(input('Enter key in range[0-25] : '))
+		if key>25 and key < 0:
+			print("Invalid key value")
+			additive()
 
 		for index,i in enumerate(_cipherText):
 			char = _charset.find(i) - key
@@ -50,5 +56,5 @@ def additive():
 		print('Invalid Choice')
 		additive()
 
-if __name__ == '__additive__':
+if __name__ == '__main__':
         additive()
